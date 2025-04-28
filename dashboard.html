@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #ffffff, #6ee7b7) no-repeat;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      .profile img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: 20px;
+        object-fit: cover;
+      }
+
+      .profile-info {
+        text-align: left;
+      }
+
+      .profile-info h2 {
+        font-size: 24px;
+      }
+
+      .profile-info p {
+        font-size: 18px;
+        margin-top: 5px;
+        color: #333;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .buttons a,
+      .buttons button {
+        text-decoration: none;
+      }
+
+      .buttons button {
+        background-color: #047857;
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .buttons button:hover {
+        background-color: #065f46;
+      }
+
+      #pdf-viewer {
+        width: 100%;
+        height: 600px;
+        margin-top: 20px;
+        display: block; /* Display current prescription by default */
+        border: 2px solid #047857;
+        border-radius: 10px;
+      }
+
+      /* Recent reports images styling */
+      .report-images {
+        display: none; /* Hidden by default */
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .report-images img {
+        width: 30%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile">
+        <img src="Frame 3.png" alt="Profile Picture" />
+        <div class="profile-info">
+          <h2>Full Name:</h2>
+          <p>User ID: 10*****15</p>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button onclick="showPrescription()">Current Prescription</button>
+        <button onclick="showReports()">Reports</button>
+        <a href="prescription.html"><button>Prescriptions</button></a>
+        <button onclick="showAbout()">About</button>
+      </div>
+
+      <!-- This will show the prescription PDF -->
+      <iframe id="pdf-viewer" src="p.jpg"></iframe>
+      <!-- Default to Current Prescription -->
+
+      <!-- Recent Reports Section -->
+      <div class="segment">
+        <h2>Recent Prescription</h2>
+        <div class="report-images">
+          <img src="xray.jpg" alt="Medical Report 1" />
+          <img src="diabetes report.jpg" alt="Medical Report 2" />
+          <img src="download.jpg" alt="Medical Report 3" />
+        </div>
+      </div>
+    </div>
+    <!-- about section -->
+    <section id="about" style="display: none; text-align: center; margin: 30px;">
+      <h1>About</h1>
+
+      <div class="content">
+        <p>
+          This is the About page. You can add information about the app here.
+        </p>
+      </div>
+
+      <div class="buttons"  style="margin-top: 20px;">
+        <a href="dashboard.html"><button>Back to Dashboard</button></a>
+      </div>
+    </section>
+    <script>
+      function showPrescription() {
+        const pdfViewer = document.getElementById("pdf-viewer");
+        pdfViewer.src = "p.jpg"; // path to your prescription PDF
+        pdfViewer.style.display = "block"; // show the prescription PDF
+        document.querySelector(".report-images").style.display = "none"; // Hide reports section
+        document.getElementById("about").style.display = "none"; // Hide about section
+      }
+    
+      function showReports() {
+        const pdfViewer = document.getElementById("pdf-viewer");
+        pdfViewer.style.display = "none"; // Hide prescription PDF
+        document.querySelector(".report-images").style.display = "flex"; // Show reports section
+        document.getElementById("about").style.display = "none"; // Hide about section
+      }
+    
+      function showAbout() {
+        const pdfViewer = document.getElementById("pdf-viewer");
+        pdfViewer.style.display = "none"; // Hide prescription PDF
+        document.querySelector(".report-images").style.display = "none"; // Hide reports section
+        document.getElementById("about").style.display = "block"; // Corrected this line
+      }
+    </script>
+    
+  </body>
+</html>
