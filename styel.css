@@ -80,13 +80,21 @@ body {
 
 #pdf-viewer {
   width: 100%;
-  height: 600px;
+  /* height: 600px; */
   margin-top: 20px;
   display: block; /* Display current prescription by default */
   border: 2px solid #047857;
   border-radius: 10px;
+  align-items: center;
+  justify-items: center;
 }
-
+iframe {
+  width: 100%;
+  height: 95%;
+  border: none;
+  border-radius: 10px;
+  margin:auto 10px;
+}
 /* Recent reports images styling */
 .report-images {
   display: none; /* Hidden by default */
