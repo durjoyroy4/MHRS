@@ -1,11 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>jubaior</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styel.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile">
+        <img src="Frame 3.png" alt="Profile Picture" />
+        <div class="profile-info">
+          <h2>Full Name:</h2>
+          <p>User ID: 10*****15</p>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button onclick="showPrescription()">Current Prescription</button>
+        <button onclick="showReports()">Reports</button> 
+        
+        <button onclick="showAllPrescription()">Prescriptions</button></a>
+        <button onclick="showAbout()">About</button>
+      </div>
+
+
+  <!-- This will show the prescription PDF -->
+      <div id="pdf-viewer">
+        <h2> Current Prescription</h2>
+      <!-- <i frame src="p.jpg"></iframe> -->
+
+        <img src="p.jpg" alt="">
+      </div>
+      <!-- Default to Current Prescription -->
+
+      <!-- Recent Reports Section -->
+      <div class="segment">
+        <!-- <h2>Recent Prescription</h2> -->
+        <div class="report-images">
+          <img src="xray.jpg" alt="Medical Report 1" />
+          <img src="diabetes report.jpg" alt="Medical Report 2" />
+          <img src="download.jpg" alt="Medical Report 3" />
+        </div>
+      </div>
+    </div>
+    <!-- about section -->
+    <section id="about" style="display: none; text-align: center; margin: 30px;">
+      <h1>About</h1>
+
+      <div class="content">
+        <p>
+          This is the About page. You can add information about the app here.
+        </p>
+      </div>
+
+      <div class="buttons"  style="margin-top: 20px;">
+        <a href="index.html"><button>Back to Dashboard</button></a>
+      </div>
+    </section>
+    <!-- PESCRIPTION SECTION -->
+    <section id="all-prescriptions" style="display: none; text-align: center; margin: 30px;">
+      <h1>Prescription</h1>
+
+      <div class="content">
+        <p>
+          This is the Prescription page.
+        </p>
+      </div>
+
+      <div class="buttons"  style="margin-top: 20px;">
+        <a href="index.html"><button>Back to Dashboard</button></a>
+      </div>
+    </section>
+    <script src="Profile.js">   </script>
+  </body>
 </html>
