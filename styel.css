@@ -4,6 +4,74 @@
   padding: 0;
   box-sizing: border-box;
 }
+#user-type-section {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #00e2d8, #d9f8e5);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #fff;
+  text-shadow: 2px 2px 4px #000;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.user-selection {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.user-card {
+  padding: 15px;
+/* background: rgba(2, 70, 70, 0.5); */
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-card:hover {
+
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.user-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.user-card p {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+}
+
+@media (max-width: 600px) {
+  .user-selection {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
 
 body {
   font-family: Arial, sans-serif;

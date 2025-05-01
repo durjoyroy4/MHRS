@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styel.css">
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styel.css">
+</head>
+
+<body>
+  <div id="user-type-section">
+
+    <h1>Medicare Health Record System</h1>
+
+    <div class="user-selection">
+      <div class="user-card" onclick="window.location.href='patient-dashboard.html'">
+        <!-- <a href="patient/index.html"> -->
+        <img src="patient-icon.png" alt="Patient">
+        <p>Patient</p>
+      </div>
+      <div class="user-card" onclick="window.location.href='doctor-dashboard.html'">
+        <img src="doctor-icon.png" alt="Doctor">
+        <p>Doctor</p>
+      </div>
+      <div class="user-card" onclick="window.location.href='hospital-dashboard.html'">
+        <img src="hospital-icon.png" alt="Hospital">
+        <p>Hospital</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- patient section -->
+  <section id="patient-section" style="display: none;">
     <div class="container">
       <div class="profile">
         <img src="Frame 3.png" alt="Profile Picture" />
@@ -19,15 +48,16 @@
       <div class="buttons">
         <button onclick="showPrescription()">Current Prescription</button>
         <button onclick="showReports()">Reports</button>
+
         <button onclick="showAllPrescription()">Prescriptions</button></a>
         <button onclick="showAbout()">About</button>
       </div>
 
 
-  <!-- This will show the prescription PDF -->
+      <!-- This will show the prescription PDF -->
       <div id="pdf-viewer">
         <h2> Current Prescription</h2>
-      <!-- <i frame src="p.jpg"></iframe> -->
+        <!-- <i frame src="p.jpg"></iframe> -->
 
         <img src="p.jpg" alt="">
       </div>
@@ -53,7 +83,7 @@
         </p>
       </div>
 
-      <div class="buttons"  style="margin-top: 20px;">
+      <div class="buttons" style="margin-top: 20px;">
         <a href="index.html"><button>Back to Dashboard</button></a>
       </div>
     </section>
@@ -67,10 +97,13 @@
         </p>
       </div>
 
-      <div class="buttons"  style="margin-top: 20px;">
+      <div class="buttons" style="margin-top: 20px;">
         <a href="index.html"><button>Back to Dashboard</button></a>
       </div>
     </section>
-    <script src="Profile.js">   </script>
-  </body>
+
+  </section>
+  <script src="Profile.js">   </script>
+</body>
+
 </html>

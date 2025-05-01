@@ -1,3 +1,8 @@
+
+
+
+
+
 function showPrescription() {
     const pdfViewer = document.getElementById("pdf-viewer");
     pdfViewer.src = "p.jpg"; // path to your prescription PDF
