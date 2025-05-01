@@ -19,11 +19,12 @@
       <div class="buttons">
         <button onclick="showPrescription()">Current Prescription</button>
         <button onclick="showReports()">Reports</button>
-        <a href="prescription.html"><button>Prescriptions</button></a>
+        <button onclick="showAllPrescription()">Prescriptions</button></a>
         <button onclick="showAbout()">About</button>
       </div>
 
-      <!-- This will show the prescription PDF -->
+
+  <!-- This will show the prescription PDF -->
       <div id="pdf-viewer">
         <h2> Current Prescription</h2>
       <!-- <i frame src="p.jpg"></iframe> -->
@@ -49,6 +50,20 @@
       <div class="content">
         <p>
           This is the About page. You can add information about the app here.
+        </p>
+      </div>
+
+      <div class="buttons"  style="margin-top: 20px;">
+        <a href="index.html"><button>Back to Dashboard</button></a>
+      </div>
+    </section>
+    <!-- PESCRIPTION SECTION -->
+    <section id="all-prescriptions" style="display: none; text-align: center; margin: 30px;">
+      <h1>Prescription</h1>
+
+      <div class="content">
+        <p>
+          This is the Prescription page.
         </p>
       </div>
 
