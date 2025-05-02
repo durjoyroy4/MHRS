@@ -4,125 +4,184 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Medical Login</title>
-  <!-- styel Secrion -->
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-body {
-  background: linear-gradient(to right, #d9f6e6, #00c979);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    body {
+      background: linear-gradient(to right, #d9f6e6, #00c979) ;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  max-width: 1200px;
-}
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
-.left-image, .right-image {
-  width: 25%;
-}
+    .left-image, .right-image {
+      width: 25%;
+      opacity: 0;
+      animation: slideIn 1.5s forwards;
+    }
 
-.left-image img, .right-image img {
-  max-width: 100%;
-  height: auto;
-}
+    .left-image {
+      animation-delay: 0.2s;
+    }
 
-.login-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 30px 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  text-align: center;
-  width: 300px;
-}
+    .right-image {
+      animation-delay: 0.5s;
+    }
 
-.logo img {
-  width: 100px;
-  margin-bottom: 20px;
-}
+    .left-image img, .right-image img {
+      max-width: 100%;
+      height: auto;
+    }
 
-.login-card form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+    .login-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+      opacity: 0;
+      animation: fadeSlideIn 1.8s forwards;
+      animation-delay: 0.3s;
+    }
 
-input[type="text"],
-input[type="password"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
+    .logo img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
 
-button.sign-in {
-  background-color: #009e5c;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-button.register {
-  margin-top: 15px;
-  background-color: #009e5c;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-}
+    label {
+      text-align: left;
+      font-weight: bold;
+    }
 
-.forgot-password {
-  font-size: 0.9em;
-  margin-top: 10px;
-  display: block;
-  text-decoration: underline;
-  color: #004d40;
-}
+    input[type="text"],
+    input[type="password"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
 
-</style>
+    button.sign-in,
+    button.register {
+      background-color: #009e5c;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button.sign-in:hover,
+    button.register:hover {
+      background-color: #007a47;
+    }
+
+    .forgot-password {
+      font-size: 0.9em;
+      margin-top: 10px;
+      display: block;
+      text-decoration: underline;
+      color: #004d40;
+    }
+
+    @keyframes fadeIn {
+      from {left: 0; }
+      to { left: 30px; }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .left-image,
+      .right-image {
+        width: 60%;
+        margin: 10px 0;
+      }
+
+      .login-card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="left-image">
-      <!-- Replace with your SVG or image -->
-      <img src=".png" alt="X-ray Illustration">
+      <img src="pic 1.png" alt="X-ray Illustration">
     </div>
 
     <div class="login-card">
       <div class="logo">
-        <img src="patientLogo.png" alt="App Logo">
+        <img src="patient.png" alt="App Logo">
       </div>
-      <form>
-        <label>Email or ID</label>
-        <input type="text" placeholder="Email or ID" required />
-        
-        <label>Password</label>
-        <input type="password" placeholder="Password" required />
-        
+      <form action="/login" method="POST">
+        <label for="email">Email or ID</label>
+        <input id="email" name="email" type="text" placeholder="Email or ID" required />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Password" required />
+
         <button type="submit" class="sign-in">Sign In</button>
-        
+
         <a href="#" class="forgot-password">Forgot password?</a>
       </form>
-      <button class="register">Register</button>
+      <a href="Register.html">  <button class="register">Register</button></a>
     </div>
 
     <div class="right-image">
-      <!-- Replace with your SVG or image -->
-      <img src="ambulance-illustration.png" alt="Ambulance Illustration">
+      <img src="car pic.png" alt="Ambulance Illustration">
     </div>
   </div>
 </body>
-</html>
+</html> 

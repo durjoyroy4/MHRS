@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #d9f6e6, #00c979);
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px;
+  }
+  
+  .form-card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 55%;
+  }
+  
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .form-group {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  
+  
+  input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .gender {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .submit-btn {
+    background-color: #009e5c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #007a49;
+    transform: scale(1.05);
+  }
+  
+  .photo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .profile-icon {
+    width: 140px;
+    animation: pulse 2s infinite;
+    margin-bottom: 20px;
+  }
+  
+  .photo-btn {
+    background-color: #009e5c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .photo-btn:hover {
+    background-color: #007a49;
+    transform: scale(1.05);
+  }
+  
+  /* Animation */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+  }
+  
