@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Login</title>
+  <!-- styel Secrion -->
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #d9f6e6, #00c979);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.left-image, .right-image {
+  width: 25%;
+}
+
+.left-image img, .right-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.login-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 300px;
+}
+
+.logo img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button.sign-in {
+  background-color: #009e5c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.register {
+  margin-top: 15px;
+  background-color: #009e5c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.forgot-password {
+  font-size: 0.9em;
+  margin-top: 10px;
+  display: block;
+  text-decoration: underline;
+  color: #004d40;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-image">
+      <!-- Replace with your SVG or image -->
+      <img src=".png" alt="X-ray Illustration">
+    </div>
+
+    <div class="login-card">
+      <div class="logo">
+        <img src="patientLogo.png" alt="App Logo">
+      </div>
+      <form>
+        <label>Email or ID</label>
+        <input type="text" placeholder="Email or ID" required />
+        
+        <label>Password</label>
+        <input type="password" placeholder="Password" required />
+        
+        <button type="submit" class="sign-in">Sign In</button>
+        
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </form>
+      <button class="register">Register</button>
+    </div>
+
+    <div class="right-image">
+      <!-- Replace with your SVG or image -->
+      <img src="ambulance-illustration.png" alt="Ambulance Illustration">
+    </div>
+  </div>
+</body>
+</html>
