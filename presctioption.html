@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medical Prescription</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f9ff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 2px solid #00aaff;
+      padding-bottom: 10px;
+    }
+
+    header input {
+      font-size: 24px;
+      font-weight: bold;
+      color: #004477;
+      border: none;
+      text-align: center;
+      width: 100%;
+    }
+
+    header p input {
+      font-size: 16px;
+      text-align: center;
+      border: none;
+      width: 100%;
+      color: #004477;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 6px;
+      margin: 4px 0;
+      font-size: 14px;
+      border-radius: 5px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00aaff;
+      box-shadow: 0 0 5px rgba(0,170,255,0.4);
+      outline: none;
+    }
+
+    .content {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    aside {
+      width: 30%;
+      padding-right: 20px;
+      border-right: 1px solid #ccc;
+    }
+
+    aside h3 {
+      margin-top: 0;
+      color: #006666;
+    }
+
+    main {
+      width: 70%;
+      padding-left: 20px;
+    }
+
+    .patient-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      background-color: #e0fff4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .patient-info > div {
+      flex: 1 1 45%;
+    }
+
+    .prescription {
+      margin-top: 20px;
+    }
+
+    .prescription h3 {
+      color: #aa0000;
+    }
+
+    .prescription textarea {
+      height: 100px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 2px solid #00aaff;
+      padding-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .download-btn {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .download-btn button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #00aaff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .download-btn button:hover {
+      background: #007acc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul input {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="prescription">
+
+    <!-- Header -->
+    <header>
+      <input type="text" value="Dr. John Doe" />
+      <p><input type="text" value="MBBS, MD - Cardiology" /></p>
+    </header>
+
+    <!-- Body Content -->
+    <div class="content">
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="disease-section">
+          <h3>Disease</h3>
+          <textarea placeholder="Enter disease...">Hypertension</textarea>
+        </div>
+        <div class="advice-section">
+          <h3>Test / Advice</h3>
+          <ul>
+            <li><input type="text" value="ECG" /></li>
+            <li><input type="text" value="Blood Pressure Monitoring" /></li>
+            <li><input type="text" value="Blood Test - Lipid Profile" /></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Section -->
+      <main>
+        <div class="patient-info">
+          <div><input type="text" placeholder="Name" value="John Smith" /></div>
+          <div><input type="text" placeholder="Age" value="45" /></div>
+          <div><input type="text" placeholder="Weight" value="78kg" /></div>
+          <div><input type="text" placeholder="Date" value="08 May 2025" /></div>
+        </div>
+
+        <div class="prescription">
+          <h3>Prescription</h3>
+          <textarea>Tab. Amlodipine 5mg - 1 tab daily after breakfast
+Tab. Aspirin 75mg - 1 tab daily at night
+Tab. Atorvastatin 10mg - 1 tab at bedtime</textarea>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer (NOT Editable) -->
+    <footer>
+      <p><strong>Chamber:</strong> ABC Clinic, Downtown</p>
+      <p><strong>Hospital:</strong> XYZ Multispeciality Hospital, NY</p>
+      <p><strong>Phone:</strong> +1-234-567-8900 | <strong>Email:</strong> contact@clinic.com</p>
+    </footer>
+  </div>
+
+  <!-- Download Button -->
+  <div class="download-btn">
+    <button onclick="downloadPDF()">Download as PDF</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById('prescription');
+      const opt = {
+        margin: 0.5,
+        filename: 'Prescription.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</body>
+</html>
