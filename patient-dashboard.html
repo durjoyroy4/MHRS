@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="patient.css">
+    <link rel="stylesheet" href="patient.css" />
+    <style>
+      /* Lightbox CSS */
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .lightbox-content {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 10px;
+      }
+
+      .close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .image-grid img {
+        max-width: 200px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: transform 0.2s;
+      }
+
+      .image-grid img:hover {
+        transform: scale(1.05);
+      }
+    </style>
   </head>
-  <body>
+  <body style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f0f9ff;">
     <div class="container">
       <div class="profile">
         <img src="Frame 3.png" alt="Profile Picture" />
@@ -17,66 +62,79 @@
       </div>
 
       <div class="buttons">
-        <button onclick="showPrescription()">Current Prescription</button>
-        <button onclick="showReports()">Reports</button> 
-        
-        <button onclick="showAllPrescription()">Prescriptions</button></a>
-        <button onclick="showAbout()">About</button>
+        <button onclick="showSection('current')">Current Prescription</button>
+        <button onclick="showSection('reports')">Reports</button>
+        <button onclick="showSection('prescriptions')">Prescriptions</button>
+        <button onclick="showSection('about')">About</button>
       </div>
 
-
-  <!-- This will show the prescription PDF -->
-      <div id="pdf-viewer">
-        <h2> Current Prescription</h2>
-      <!-- <i frame src="p.jpg"></iframe> -->
-
-        <img src="p.jpg" alt="">
+      <!-- Current Prescription -->
+      <div id="section-current" class="image-grid">
+        <h2>Current Prescription</h2>
+        <img src="p.jpg" alt="Current Prescription" />
       </div>
-      <!-- Default to Current Prescription -->
 
-      <!-- Recent Reports Section -->
-      <div class="segment">
-        <!-- <h2>Recent Prescription</h2> -->
-        <div class="report-images">
-          <img src="xray.jpg" alt="Medical Report 1" />
-          <img src="diabetes report.jpg" alt="Medical Report 2" />
-          <img src="download.jpg" alt="Medical Report 3" />
+      <!-- Reports Section -->
+      <div id="section-reports" class="image-grid" style="display: none;">
+        <h2>Medical Reports</h2>
+        <img src="xray.jpg" alt="Medical Report 1" />
+        <img src="diabetes report.jpg" alt="Medical Report 2" />
+        <img src="download.jpg" alt="Medical Report 3" />
+      </div>
+
+      <!-- Prescriptions Section -->
+      <section id="section-prescriptions" style="display: none; text-align: center; margin: 30px;">
+        <h2>All Prescriptions</h2>
+        <div class="prescription-images image-grid">
+          <img src="p.jpg" alt="Prescription 1" />
+          <img src="p.jpg" alt="Prescription 2" />
+          <img src="p.jpg" alt="Prescription 3" />
         </div>
-      </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="section-about" style="display: none; text-align: center; margin: 30px;">
+        <h2>About</h2>
+        <p>This is the About page. You can add information about the app here.</p>
+        <div class="buttons" style="margin-top: 20px;">
+          <a href="index.html"><button>Back to Dashboard</button></a>
+        </div>
+      </section>
     </div>
-    <!-- about section -->
-    <section id="about" style="display: none; text-align: center; margin: 30px;">
-      <h1>About</h1>
 
-      <div class="content">
-        <p>
-          This is the About page. You can add information about the app here.
-        </p>
-      </div>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <span class="close" onclick="closeLightbox()">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" />
+    </div>
 
-      <div class="buttons"  style="margin-top: 20px;">
-        <a href="index.html"><button>Back to Dashboard</button></a>
-      </div>
-    </section>
-    <!-- PESCRIPTION SECTION -->
-    <section id="all-prescriptions" style="display: none; text-align: center; margin: 30px;">
-      <h1>Prescription</h1>
+    <script>
+      // Show lightbox
+      function openLightbox(src) {
+        document.getElementById("lightbox-img").src = src;
+        document.getElementById("lightbox").style.display = "block";
+      }
 
-      <div class="content">
-        <p>
-          This is the Prescription page.
-        </p>
-        <div>
-          <img src="p.jpg" alt="">
-          <img src="p.jpg" alt="">
-          <img src="p.jpg" alt="">
-        </div>
-      </div>
+      // Close lightbox
+      function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+      }
 
-      <div class="buttons"  style="margin-top: 20px;">
-        <a href="index.html"><button>Back to Dashboard</button></a>
-      </div>
-    </section>
-    <script src="patient.js">   </script>
+      // Setup image click handlers
+      window.onload = function () {
+        const images = document.querySelectorAll(".image-grid img");
+        images.forEach((img) => {
+          img.addEventListener("click", () => openLightbox(img.src));
+        });
+      };
+
+      // Section toggling
+      function showSection(section) {
+        const sections = ['current', 'reports', 'prescriptions', 'about'];
+        sections.forEach((id) => {
+          document.getElementById(`section-${id}`).style.display = (id === section) ? 'block' : 'none';
+        });
+      }
+    </script>
   </body>
 </html>
