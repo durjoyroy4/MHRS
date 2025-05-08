@@ -49,10 +49,30 @@
       .image-grid img:hover {
         transform: scale(1.05);
       }
+
+      .search-box {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .search-box input {
+        padding: 8px 12px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        outline: none;
+        width: 200px;
+      }
     </style>
   </head>
   <body style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f0f9ff;">
     <div class="container">
+      <div class="search-box">
+        <input type="text" placeholder="Search..." />
+      </div>
+
       <div class="profile">
         <img src="Frame 3.png" alt="Profile Picture" />
         <div class="profile-info">
@@ -92,15 +112,26 @@
         </div>
       </section>
 
-      <!-- About Section -->
-      <section id="section-about" style="display: none; text-align: center; margin: 30px;">
-        <h2>About</h2>
-        <p>This is the About page. You can add information about the app here.</p>
-        <div class="buttons" style="margin-top: 20px;">
-          <a href="index.html"><button>Back to Dashboard</button></a>
-        </div>
-      </section>
-    </div>
+     <!-- About Section -->
+<section id="section-about" style="display: none; text-align: center; margin: 30px;">
+  <h2>About</h2>
+  <p>This is the About page. You can add information about the app here.</p>
+
+  <div class="contact-info" style="margin-top: 20px;">
+    <h3>Contact & Social Links</h3>
+    <p>
+      <strong>Facebook:</strong>
+      <a href="https://facebook.com/yourprofile" target="_blank" style="color: #1877f2;">facebook.com/yourprofile</a>
+    </p>
+    <p><strong>Email:</strong> support@example.com</p>
+    <p><strong>Phone:</strong> +1 234 567 8900</p>
+  </div>
+
+  <div class="buttons" style="margin-top: 20px;">
+    <a href="index.html"><button>Back to Dashboard</button></a>
+  </div>
+</section>
+
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
